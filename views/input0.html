@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>show</title>
+  <title>input0</title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
     <!-- Optional theme -->
@@ -54,9 +54,6 @@
       border: 1px solid black;
       padding-left: 10px;
     }
-
-
-
     .box{
       border:1px solid black;
       display: inline-block;
@@ -88,9 +85,6 @@
       border-bottom: 2px solid black;
       font-size: 16px;
     }
-
-
-
     .right_bottom{
       /*border:1px solid black;*/
       margin-top: 1%;
@@ -100,7 +94,6 @@
       display: inline-block;
       bottom:10px;
       right: 100px;
-      /*border: 2px solid black;*/
       height:60px;
       width: 45%;
       text-align: center;
@@ -138,7 +131,6 @@
     .button_box{
       width:54%;
       height:60px;
-      /*border:1px solid black;*/
       display: inline-block;
       margin-left: 5px;
       vertical-align: middle;
@@ -150,49 +142,86 @@
       background: #8e8e8e;
       color:black;
     }
+    select{
+      width:100px;
+      margin:5px 0 ;
+    }
+    input{
+      width:150px;
+      margin:5px 0;
+    }
+    .form_left,.form_right{
+      width:40%;
+      display: inline-block;
+      vertical-align: top;
+    }
+    .form_left{
+      text-align: right;
+      padding-right: 30px;
+    }
+    .form_right{
+      text-align: right;
+    }
+    .form_bottom{
+      padding-left: 10px;
+    }
+    .form_bottom input{
+      width:300px;
+    }
+    td{
+      height:30px;
+    }
+    .red{
+      color: red;s
+    }
 </style>
 </head>
 <body>
     <div class=" left_box pull-left">
       <form action="">
+        <div class="form_left">
           <span>工单号:</span>
+          <input type="text"> <br>
+          <span>车牌号:</span>
+          <input type="text" name="" value=""> <br>
+          <span> 姓名:</span>
+          <input type="text"> <br>
+          <span>手机号:</span>
+          <input type="text"><br>
+          <span>单位:</span>
           <input type="text">
+        </div>
+
+        <div class="form_right">
           <span>保险公司:</span>
-          <select name="" id="">
+          <select>
             <option value="">中国平安</option>
             <option value="">其他保险</option>
           </select>
           <br>
-          <span>车牌号:</span>
-          <input type="text" name="" value="">
           <span>汽车品牌:</span>
           <select name="" id="">
             <option value="">一汽大众</option>
             <option value="">其他汽车</option>
           </select>
           <br>
-          <span> 姓名:</span>
-          <input type="text">
           <span>车型:</span>
           <select name="" id="">
             <option value="">速腾</option>
             <option value="">其他</option>
           </select>
           <br>
-          <span>手机号:</span>
-          <input type="text">
           <span>颜色:</span>
           <select name="" id="">
             <option value="">海豚灰</option>
             <option value="">其他颜色</option>
           </select>
           <br>
-          <span>单位:</span>
-          <input type="text">
-          <br>
+        </div>
+        <div class="form_bottom">
           <span>地址:</span>
           <input type="text">
-
+        </div>
       </form>
       <br>
       <h4>维修项目</h4>
@@ -206,7 +235,10 @@
             <td>保存</td>
           </tr>
           <tr>
-            <td></td><td></td><td></td><td></td>
+            <td>左前叶子钣金</td>
+            <td>中度</td>
+            <td>360</td>
+            <td> <i class=" btn fa fa-times red" aria-hidden="true"></i></td>
           </tr>
           <tr>
             <td></td><td></td><td></td><td></td>

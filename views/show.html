@@ -69,44 +69,177 @@
     .content{
       border: 1px solid black;
       width:100%;
-      height: 500px;
+      height: 600px;
     }
     .colume{
       width:16%;
-      height: 500px;
-      border: 1px solid black;
+      height: 600px;
+      /*border: 1px solid black;*/
       margin: 0 3px ;
-      /*display: flex;*/
       padding:0;
+      background: lightblue;
     }
     .work_box{
-      width:100%;
+      width:98%;
       height:120px;
-      border-top: 1px solid black;
-      border-bottom:1px solid black;
+      border: 2px solid black;
       margin:2px;
       margin-top: 5px;
+      text-align: left;
+      font-size: 16px;
+      font-weight: bold;
+      padding-left: 5px;
+      border-radius: 5px;
     }
     .left_box{
       text-align: left;
-      width:100px;
+      width:120px;
       height: 85px;
-      border: 1px solid green;
+      /*border: 1px solid green;*/
+      display: inline-block;
+      vertical-align:top;
     }
     .right_box{
+      margin-left: 30px;
       text-align: left;
-      height: 100px;
+      height: 85px;
+      display: inline-block;
+      vertical-align: top;
+      padding:10px 0 ;
     }
     .bottom_box{
-      border:1px solid black;
+      /*border:1px solid red;*/
       width:100%;
       height:30px;
-      position: relative;
-      top:90px;
+      line-height: 30px;
       text-align: left;
-      padding-left: 5px;
     }
     .number{
+      color:blue;
+    }
+    .blue{
+      color:blue;
+    }
+
+    .show_box{
+      width:1200px;
+      height: 600px;
+      position: absolute;
+      background: white;
+      top:150px;
+      left:200px;
+      border-radius: 5px;
+      padding:5px;
+      border: 1px solid black;
+    }
+    .show_left_box{
+      width:30%;
+      height:100%;
+      display: inline-block;
+      vertical-align: top;
+    }
+    .show_right_box{
+      width: 69%;
+      height: 100%;
+      background: white;
+      display: inline-block;
+      vertical-align: top;
+    }
+    .car_info{
+      border:2px solid black;
+      margin: 5px 0 ;
+      background: #d0d0d0;
+      padding-left: 5px;
+    }
+    .car_info_left{
+      display: inline-block;
+      vertical-align: top;
+    }
+    .car_info_right{
+      display: inline-block;
+      vertical-align: top;
+    }
+    .damage_info{
+      overflow-y: scroll;
+      width: 100%;
+      height: 200px;
+      border: 2px solid black;
+      margin: 5px 0;
+      background: #d0d0d0;
+    }
+    .spare_part{
+      width: 100%;
+      height: 100px;
+      border: 1px solid black;
+      padding: 10px;
+      color:blue;
+      font-size: 18px;
+    }
+    .show_right_head{
+      width: 100%;
+      height: 50px;
+      border:1px solid green;
+      padding-top: 5px;
+      padding-left: 5px;
+      line-height: 50px;
+    }
+    .select_box{
+      width:200px;
+      height: 40px;
+      display: inline-block;
+      vertical-align: top;
+    }
+    select{
+      height: 30px;
+    }
+    .complete_time_box{
+      display: inline-block;
+      vertical-align: top;
+    }
+    .complete_time{
+      display: inline-block;
+      vertical-align: top;
+      width: 150px;
+      height: 40px;
+      line-height: 40px;
+      background: lightgreen;
+      padding-left: 10px;
+    }
+    .close{
+      height: 40px;
+      width:50px;
+    }
+    .show_right_content{
+      border:1px solid black;
+      width: 100%;
+      height: 350px;
+    }
+    .show_right_content_head{
+      padding-left: 40px;
+    }
+    .show_right_content_table{
+      border:1px solid red;
+      width: 100%;
+      height: 300px;
+      padding: 5px;
+    }
+  .show_right_content_table td{
+      height: 30px;
+      text-align: center;
+      vertical-align: middle;
+      border: 1px solid black;
+    }
+    .show_right_bottom{
+      width:100%;
+      height: 50px;
+      margin: 10px  0 ;
+    }
+    .box{
+      border:1px solid black;
+      display: inline-block;
+      vertical-align: bottom;
+      width:80px;
+      text-align: center;
       color:blue;
     }
 </style>
@@ -145,45 +278,46 @@
       </div>
     </div>
     <div class="head_bottom">
-      <div class="btn"><span> 拆解报价</span> <label>4</label></div>
-      <div class="btn"><span>5月27日</span> <label>6</label></div>
-      <div class="btn"><span>5月27日</span> <label>6</label></div>
-      <div class="btn"><span>5月27日</span> <label>6</label></div>
-      <div class="btn"><span>5月27日</span> <label>6</label></div>
-      <div class="btn"><span>已完工</span> <label>2</label></div>
+      <div class="btn"><span> 拆解报价</span> <label class="blue">4</label></div>
+      <div class="btn"><span>5月27日</span> <label class="blue">6</label></div>
+      <div class="btn"><span>5月27日</span> <label class="blue">6</label></div>
+      <div class="btn"><span>5月27日</span> <label class="blue">6</label></div>
+      <div class="btn"><span>5月27日</span> <label class="blue">6</label></div>
+      <div class="btn"><span>已完工</span> <label class="blue">2</label></div>
     </div>
   </div>
   <div class="content">
     <div class="colume btn">
-      <div class="work_box clearfix ">
-        <div class=" left_box pull-left ">
-          <p class=" number">3-1042 </p>
+      <div class="work_box ">
+        <div class=" left_box  ">
+          <p class=" number ">3-1042 </p>
           <p>钣金拆解</p>
           <p><span>接待员</span> <span>张培培</span></p>
         </div>
-        <div class=" right_box pull-right">
+        <div class=" right_box ">
           <p>京E56449</p>
           <p>奔驰</p>
         </div>
+        <div class=" bottom_box">
+          <span>交车时间:</span> <span>5月31日 18:00</span>
+        </div>
+      </div>
 
-        <div class=" bottom_box">
-          <span>交车时间:</span><span>5月31日 18:00</span>
-        </div>
-      </div>
-      <div class="work_box clearfix ">
-        <div class=" left_box pull-left ">
-          <p class="number">3-1042 </p>
+      <div class="work_box ">
+        <div class=" left_box  ">
+          <p class=" number ">3-1042 </p>
           <p>钣金拆解</p>
           <p><span>接待员</span> <span>张培培</span></p>
         </div>
-        <div class=" right_box pull-right">
+        <div class=" right_box ">
           <p>京E56449</p>
           <p>奔驰</p>
         </div>
         <div class=" bottom_box">
-          <span>交车时间:</span><span>5月31日 18:00</span>
+          <span>交车时间:</span> <span>5月31日 18:00</span>
         </div>
       </div>
+
     </div>
     <div class="colume btn"></div>
     <div class="colume btn"></div>
@@ -191,9 +325,135 @@
     <div class="colume btn"></div>
     <div class="colume btn"></div>
   </div>
+  <div class="show_box hidden ">
+      <div class="show_left_box">
+        <div>
+          <span>客户信息</span> <span class="pull-right" style="margin-right:10px;"><span>接待员:</span><span>张培培</span></span>
+        </div>
+        <div class="car_info">
+          <div class="car_info_left">
+            <div>
+              <span>工单号:</span> <span>3-1042</span>
+            </div>
+            <div>
+              <span>车牌号:</span> <span>京E5644</span>
+            </div>
+            <div>
+              <span>姓名</span> <span>李超</span>
+            </div>
+            <div>
+              <span>手机号:</span> <span>18618891111</span>
+            </div>
+            <div>
+              <span>单位:</span> <span>个人</span>
+            </div>
+          </div>
+          <div class="car_info_right">
+            <div>
+              <span>保险:</span> <span>中国平安</span>
+            </div>
+            <div>
+              <span>品牌:</span> <span>速腾</span>
+            </div>
+            <div>
+              <span>颜色:</span> <span>海豚灰</span>
+            </div>
+          </div>
+          <div class="car_info_bottom">
+            <span>地址:</span> <span>北京市朝阳区劲松东路1号</span>
+          </div>
+        </div>
+        <div>维修项目</div>
+        <div class="damage_info">
+            <table class="table">
+              <tr> <td> 钣金</td> <td>损伤状态</td> </tr>
+              <tr><td> 左前门钣金</td> <td>中度</td></tr>
+              <tr><td>右前门钣金</td> <td>中度</td></tr>
+              <tr> <td> 喷漆</td> <td>损伤状态</td> </tr>
+              <tr><td> 左前门喷漆</td> <td>中度</td></tr>
+              <tr><td>右前门喷漆</td> <td>中度</td></tr>
+
+            </table>
+
+        </div>
+        <div>备注信息</div>
+        <div class="spare_part">等待备件,先行施工-张培培</div>
+      </div>
+      <div class="show_right_box">
+        <div class="show_right_head">
+              <div class="select_box">
+                <span> 分配班组:</span>
+                <select>
+                  <option>事故拆解</option>
+                  <option>其他</option>
+                </select>
+              </div>
+              <div class="complete_time_box">
+                <span>预计交车时间:</span> <span class="complete_time">6月3日 14:00</span>
+              </div>
+              <button type="button" class="close" > <i class="fa fa-times" aria-hidden="true"></i> </button>
+        </div>
+        <div class=" show_right_content ">
+            <div class=" show_right_content_head">
+              <button type="button" name="button">派工单</button>
+              <button type="button" name="button">维修记录单</button>
+            </div>
+            <div class="show_right_content_table">
+              <table class="table table-bordered">
+                <tr>
+                  <td>工序</td>
+                  <td>状态</td>
+                  <td colspan="2">施工时长</td>
+                  <td>预计时间</td>
+                  <td>实际时间</td>
+                  <td>施工人</td>
+                  <td>工位</td>
+                </tr>
+                <tr>
+                  <td rowspan="2" valign="middle" >钣金拆解</td>
+                  <td rowspan="2">未进行</td>
+                  <td rowspan='2'>240分钟</td>
+                  <td>开始</td>
+                  <td>6月1日 11:00</td>
+                  <td>6月1日 11:00</td>
+                  <td rowspan="2">钣金张峰(委派)</td>
+                  <td rowspan="2"></td>
+                </tr>
+                <tr>
+                  <td>结束</td>
+                  <td>06月2日 12:00</td>
+                  <td>6月2日 12:00</td>
+                </tr>
+              </table>
+
+            </div>
+        </div>
+        <div class="show_right_bottom">
+          <span>定损部件:</span> <span class=" box">3</span>
+          <div class="btn pull-right cancle"> 取消</div>
+        </div>
+      </div>
+
+  </div>
 </body>
 <script>
 
+  // 打开详细信息栏
+  $('.work_box').click(function(){
+      console.log('22');
+      $('.show_box').removeClass('hidden')
+      $('.show_box').addClass('show')
+  });
+
+//关闭详细信息栏
+  $('.close').click(function(){
+      $('.show_box').removeClass('show')
+      $('.show_box').addClass('hidden')
+  });
+  $('.cancle').click(function(){
+    console.log('222222');
+    $('.close').click();
+  });
 
 
 </script>
