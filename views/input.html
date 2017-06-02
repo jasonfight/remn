@@ -20,9 +20,11 @@
     list-style: none;
   }
   .left_box{
-      border:1px solid black;
-      width:600px;
-      height: 700px;
+      width:37%;
+      height: 600px;
+      display: inline-block;
+      vertical-align: top;
+      border: 1px solid black;
     }
   .table_box{
       width:100%;
@@ -34,13 +36,16 @@
     }
     textarea{
       width:100%;
+      height:96px;
     }
     .right_box{
       border: 1px solid black;
-      width:1000px;
+      width:60%;
       height:600px;
       padding: 1%;
       padding-bottom: 0;
+      display: inline-block;
+      vertical-align: top;
     }
     .name_zone{
       margin:5px;
@@ -66,15 +71,15 @@
     .car_left{
       width:45%;
       height: 30%;
-      background: black;
+      /*background: black;*/
       position: absolute;
       left:5%;
       top:15%;
-      opacity:0.5;
+      /*opacity:0.5;*/
     }
     .front_bumper{
       background: blue;
-      opacity:0.7;
+      opacity:0;
       width:10%;
       height:50%;
       position: absolute;
@@ -82,7 +87,7 @@
     }
     .front_door{
       background: blue;
-      opacity:0.7;
+      opacity:0;
       width:25%;
       height:50%;
       position: absolute;
@@ -91,7 +96,7 @@
     }
     .back_door{
       background: blue;
-      opacity:0.7;
+      opacity:0;
       width:25%;
       height:50%;
       position: absolute;
@@ -100,7 +105,7 @@
     }
     .rear_bumper{
       background: blue;
-      opacity:0.7;
+      opacity:0;
       width:10%;
       height:50%;
       position: absolute;
@@ -160,13 +165,11 @@
     }
     .time_box{
       display: inline-block;
-      bottom:10px;
-      right: 100px;
       height:60px;
-      width: 45%;
+      width: 48%;
       text-align: center;
-      font-size: 18px;
-      vertical-align: middle;
+      font-size: 14px;
+      vertical-align: top;
     }
     .time_info{
       height: 100%;
@@ -197,42 +200,44 @@
       height: 28px;
     }
     .button_box{
-      width:54%;
+      width:50%;
       height:60px;
-      /*border:1px solid black;*/
+      margin-left: 1%;
       display: inline-block;
-      margin-left: 5px;
-      vertical-align: middle;
+      vertical-align: top;
       line-height: 60px;
     }
     .button_box .button{
-      width:120px;
+      width:24%;
       border: 1px solid black;
-      background: #8e8e8e;
+      background: #d0d0d0;
       color:black;
+      padding:5px  0;
+      text-align: center;
+
     }
     select{
-      width:100px;
+      width:50%;
       margin:5px 0 ;
     }
     input{
-      width:150px;
+      width:60%;
       margin:5px 0;
     }
     .form_left,.form_right{
-      width:40%;
+      width:48%;
       display: inline-block;
       vertical-align: top;
     }
     .form_left{
       text-align: right;
-      padding-right: 30px;
+      padding-right: 1%;
     }
     .form_right{
       text-align: right;
     }
     .form_bottom{
-      padding-left: 10px;
+      padding-left: 45px;
     }
     .form_bottom input{
       width:300px;
@@ -246,7 +251,7 @@
 </style>
 </head>
 <body>
-    <div class=" left_box pull-left">
+    <div class=" left_box ">
       <form action="">
         <div class="form_left">
           <span>工单号:</span>
@@ -296,58 +301,51 @@
       </form>
       <br>
       <h4>维修项目</h4>
-      <!-- 左侧展示列表 -->
       <div class=" table_box">
         <table class="table table-bordered">
-          <tr>
+          <tr value="1">
             <td>维修项目</td>
             <td>损伤状态</td>
             <td>维修费</td>
             <td>保存</td>
           </tr>
-          <tr>
-            <td>左前叶子钣金</td>
-            <td>中度</td>
-            <td>360</td>
-            <td> <i class=" btn fa fa-times red" aria-hidden="true"></i></td>
-          </tr>
-          <tr>
+          <tr value="0">
             <td></td><td></td><td></td><td></td>
           </tr>
-          <tr>
+          <tr value="0">
             <td></td><td></td><td></td><td></td>
           </tr>
-          <tr>
+          <tr value="0" >
             <td></td><td></td><td></td><td></td>
           </tr>
-          <tr>
+          <tr  value="0">
             <td></td><td></td><td></td><td></td>
           </tr>
-          <tr>
+          <tr  value="0">
             <td></td><td></td><td></td><td></td>
           </tr>
-          <tr>
+          <tr value="0" >
             <td></td><td></td><td></td><td></td>
           </tr>
-          <tr>
+          <tr  value="0">
             <td></td><td></td><td></td><td></td>
           </tr>
-          <tr>
+          <tr value="0" >
             <td></td><td></td><td></td><td></td>
           </tr>
-          <tr>
+          <tr value="0" >
             <td></td><td></td><td></td><td></td>
           </tr>
-          <tr>
+          <tr  value="0">
             <td></td><td></td><td></td><td></td>
           </tr>
-          <tr>
+          <tr  value="0">
             <td></td><td></td><td></td><td></td>
           </tr>
-          <tr>
+          <tr  value="0">
             <td></td><td></td><td></td><td></td>
           </tr>
-          <tr>
+          <tr  value="0">
             <td></td><td></td><td></td><td></td>
           </tr>
         </table>
@@ -356,7 +354,7 @@
 
     </div>
 
-    <div class=" right_box pull-right ">
+    <div class=" right_box">
       <button type="button btn-info" name="button">覆盖件</button>
       <button type="button" name="button">加强件</button>
 
@@ -366,10 +364,10 @@
       </div>
       <div class="image_zone">
           <div class="car_left">
-              <div class="btn front_bumper" name="前保险杠"></div>
-              <div class=" btn front_door" name="左前门"></div>
-              <div class=" btn back_door" name="右前门"></div>
-              <div class=" btn rear_bumper" name="后保险杠"></div>
+              <div class="btn front_bumper  part" name="左前保险杠"></div>
+              <div class=" btn front_door part " name="左前门"></div>
+              <div class=" btn back_door part " name="左后门"></div>
+              <div class=" btn rear_bumper part " name="左后保险杠"></div>
           </div>
       </div>
       <strong>定损部件:</strong>  <span class="part_number bg-info"> 4 </span>
@@ -388,7 +386,7 @@
       </div>
 
       <div class="damage_info_box hidden">
-        <p><span>部件:</span> <span class="part_name">左前门</span></p>
+        <p><span>部件:</span> <span class="part_name"></span></p>
         <p>损伤状态</p>
           <ul class="list-group">
           <li >轻度</li>
@@ -403,26 +401,46 @@
 
 </body>
 <script>
-    //
-    $('.btn').click(function(e){
+      $('.part').hover(function(){
+        $(this).css('opacity','0.7');
+      },function(){
+        $(this).css('opacity','0')
+      })
+    //单击部件弹出受损评估框
+    $('.part').click(function(e){
       console.log($(this).attr('name'));
+      $('.damage_info_box .part_name').text($(this).attr('name'));
       $('.damage_info_box').removeClass('hidden');
       $('.damage_info_box').addClass('show');
       $('.damage_info_box').css({'left':e.pageX,'top':e.pageY});
-    })
-    $('.btn').sibling.click(function(){
+      e.stopPropagation();
+    });
+    //单击评估框之外的地方,关闭评估框
+    $('html').not('part').click(function(){
       $('.damage_info_box').removeClass('show');
       $('.damage_info_box').addClass('hidden');
-    })
-  // $('.btn').hover(function(e){
-  //   console.log(e.pageX);
-  //   $('.damage_info_box').removeClass('hidden');
-  //   $('.damage_info_box').addClass('show');
-  //
-  // },function(e){
-  //   $('.damage_info_box').removeClass('show');
-  //   $('.damage_info_box').addClass('hidden');
-  // })
+    });
 
+
+    //点击按钮,删除维修项目
+    $('table').on('click','.red',function(){
+      console.log('删除按钮被单击');
+      $(this).parent().parent().attr('value','0')
+      $(this).parent().parent().children().remove();
+      var text = '<tr value="0"><td></td><td></td><td></td><td></td></tr>'
+      $('table').append(text);
+    });
+
+
+    //点击受损程度,增加列表项.
+    $('.damage_info_box li').click(function(){
+      console.log($(this).text());
+      console.log($('.damage_info_box .part_name').text());
+      var text = '<td>' + $('.damage_info_box .part_name').text()
+      + '</td>' + '<td>' +  $(this).text()
+      + '</td> <td> 350 </td> <td>' +  '<i class=" btn fa fa-times red" aria-hidden="true"></i>' + '</td>' ;
+      $('.table_box tr[value="0"]:first').html(text);
+      $('.table_box tr[value="0"]:first').attr('value','1');
+    })
 </script>
 </html>
