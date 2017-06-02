@@ -243,6 +243,10 @@
       text-align: center;
       color:blue;
     }
+    li{
+      list-style: none;
+    }
+
 </style>
 
 </head>
@@ -269,8 +273,16 @@
 
         	current_time.innerHTML = '<font size=5 >' + _year + '年' + _month + '月' + _date + '日' + ' ' +
     			_hour.substr(1) + ":" + _minute.substr(1)  + '</font>'; //指定div元素的innerHTML
-        	};
+
+            $('#date1').html(_month+'月'+_date+'日');
+            $('#date2').html(_month+'月'+(_date+1)+'日');
+            $('#date3').html(_month+'月'+(_date+2)+'日');
+            $('#date4').html(_month+'月'+(_date+3)+'日');
+
+
+          };
       		var time=window.setInterval("clock()", 1000);
+
   		  </script>
       </div>
       <div class="name_zone pull-right">
@@ -279,17 +291,17 @@
       </div>
     </div>
     <div class="head_bottom">
-      <div class="btn"><span> 拆解报价</span> <label class="blue">4</label></div>
-      <div class="btn"><span>5月27日</span> <label class="blue">6</label></div>
-      <div class="btn"><span>5月27日</span> <label class="blue">6</label></div>
-      <div class="btn"><span>5月27日</span> <label class="blue">6</label></div>
-      <div class="btn"><span>5月27日</span> <label class="blue">6</label></div>
+      <div class="btn"><span>拆解报价</span> <label class="blue">4</label></div>
+      <div class="btn"><span id="date1"></span> <label class="blue">6</label></div>
+      <div class="btn"><span id="date2">5月27日</span> <label class="blue">6</label></div>
+      <div class="btn"><span id="date3">5月27日</span> <label class="blue">6</label></div>
+      <div class="btn"><span id="date4">5月27日</span> <label class="blue">6</label></div>
       <div class="btn"><span>已完工</span> <label class="blue">2</label></div>
     </div>
   </div>
   <div class="content">
-    <div class="colume btn">
-      <div class="work_box ">
+    <ul class="colume btn">
+      <li class="work_box ">
         <div class=" left_box  ">
           <p class=" number ">3-1042 </p>
           <p>钣金拆解</p>
@@ -302,9 +314,9 @@
         <div class=" bottom_box">
           <span>交车时间:</span> <span>5月31日 18:00</span>
         </div>
-      </div>
+      </li>
 
-      <div class="work_box ">
+      <li class="work_box ">
         <div class=" left_box  ">
           <p class=" number ">3-1042 </p>
           <p>钣金拆解</p>
@@ -317,14 +329,13 @@
         <div class=" bottom_box">
           <span>交车时间:</span> <span>5月31日 18:00</span>
         </div>
-      </div>
-
-    </div>
-    <div class="colume btn"></div>
-    <div class="colume btn"></div>
-    <div class="colume btn"></div>
-    <div class="colume btn"></div>
-    <div class="colume btn"></div>
+      </li>
+    </ul>
+    <ul class="colume btn"></ul>
+    <ul class="colume btn"></ul>
+    <ul class="colume btn"></ul>
+    <ul class="colume btn"></ul>
+    <ul class="colume btn"></ul>
   </div>
   <div class="show_box hidden ">
       <div class="show_left_box">
@@ -452,10 +463,139 @@
       $('.show_box').addClass('hidden')
   });
   $('.cancle').click(function(){
-    console.log('222222');
     $('.close').click();
   });
 
+  $(function(){
+      drag.init('content');
+  });
 
+  var drag = {
+    class_name : null,
+  	permitDrag : false,
+  	_x : 0,
+    _y : 0,
+    _left : 0,
+    _top : 0,
+
+    old_elm : null,
+    tmp_elm : null,
+    new_elm : null,
+
+    init : function (className){
+    	drag.class_name = className;
+      $('.' + drag.class_name).on('mousedown', 'ul li', function(event){
+          drag.permitDrag = true;
+          drag.old_elm = $(this);
+          drag.mousedown(event);
+          return false;
+          });
+
+      $(document).mousemove(function(event){
+          if(!drag.permitDrag) return false;
+          drag.mousemove(event);
+          return false;
+          });
+
+      $(document).mouseup(function(event){
+          if(!drag.permitDrag) return false;
+          drag.permitDrag = false;
+          drag.mouseup(event);
+          return false;
+          });
+
+      },
+
+  	mousedown : function (event){
+          drag.tmp_elm = $(drag.old_elm).clone();
+          drag._x = $(drag.old_elm).offset().left;
+          drag._y = $(drag.old_elm).offset().top;
+
+          var e = event || window.event;
+          drag._left = e.pageX - drag._x;
+          drag._top = e.pageY - drag._y;
+          $(drag.tmp_elm).css({
+              'position' : 'absolute',
+              'background-color' : '#FF8C69',
+              'left' : drag._x,
+              'top' : drag._y,
+              'width':'15%',
+          });
+          tmp = $(drag.old_elm).parent().append(drag.tmp_elm);
+          drag.tmp_elm = $(tmp).find(drag.tmp_elm);
+          $(drag.tmp_elm).css('cursor', 'move');
+
+  	},
+
+  	mousemove : function (event){
+          var e = event || window.event;
+          var x = e.pageX - drag._left;
+          var y = e.pageY - drag._top;
+          var maxL = $(document).width() - $(drag.old_elm).outerWidth();
+          var maxT = $(document).height() - $(drag.old_elm).outerHeight();
+
+          x = x < 0 ? 0: x;
+          x = x > maxL ? maxL: x;
+          y = y < 0 ? 0: y;
+          y = y > maxT ? maxT: y;
+
+          $(drag.tmp_elm).css({
+              'left' : x,
+              'top' : y,
+          });
+
+          $.each($('.' + drag.class_name + ' ul'), function(index, value){
+              var box_x = $(value).offset().left;     //容器左上角x坐标
+              var box_y = $(value).offset().top;      //容器左上角y坐标
+              var box_width = $(value).outerWidth();  //容器宽
+              var box_height = $(value).outerHeight();//容器高
+
+              if(e.pageX > box_x && e.pageX < box_x-0+box_width && e.pageY > box_y && e.pageY < box_y-0+box_height){
+
+                  if($(value).offset().left !== drag.old_elm.parent().offset().left
+                  || $(value).offset().top !== drag.old_elm.parent().offset().top){
+                  }
+              }
+
+          });
+
+  	},
+
+      mouseup : function (event){
+          $(drag.tmp_elm).remove();
+          var e = event || window.event;
+          $.each($('.' + drag.class_name + ' ul'), function(index, value){
+              var box_x = $(value).offset().left;
+              var box_y = $(value).offset().top;
+              var box_width = $(value).outerWidth();
+              var box_height = $(value).outerHeight();
+              if(e.pageX > box_x && e.pageX < box_x-0+box_width && e.pageY > box_y && e.pageY < box_y-0+box_height){
+                  if($(value).offset().left !== drag.old_elm.parent().offset().left
+                  || $(value).offset().top !== drag.old_elm.parent().offset().top){
+                      tmp = $(drag.old_elm).clone();
+                      var newObj = $(value).append(tmp);
+                      $(drag.old_elm).remove();
+                      drag.new_elm = $(newObj).find(tmp);
+                  }
+              }
+          });
+
+      },
+
+  };
+
+  $('.content').bind('contextmenu','ul li',function(){
+  	 return false;
+  });
+  $('.show_box').bind('contextmenu',function(){
+    return false;
+  });
+  $('ul').on('mousedown','li',function(e){
+  	if (3 == e.which) {
+  			 console.log('youjian');
+         $('.show_box').removeClass('hidden')
+         $('.show_box').addClass('show')
+  	 }
+  })
 </script>
 </html>
